@@ -44,6 +44,33 @@ Note:
 - The 'label_with_ids' is generated from a script from folder `tools`.
 But we strongly recommend **not** using it because the generated track_id may not correspond the track_id of our expression files.
 
+### Modifying Data Paths
+
+#### For Training
+To use custom training data, modify the following parameters in `configs/r50_rmot_train.sh`:
+
+1. **Data list file** (Line 35):
+   ```bash
+   --data_txt_path_train ./datasets/data_path/refer-kitti.train
+   ```
+   Change this to point to your custom data list file. The file should contain relative paths to images (one per line).
+   Format: `KITTI/training/image_02/[sequence]/[frame].png`
+
+2. **RMOT base path** (Line 34):
+   ```bash
+   --rmot_path /home/seanachan/RMOT
+   ```
+   Update this to your RMOT installation directory where the dataset is located.
+
+#### For Testing
+To use custom test data, modify the following parameter in `configs/r50_rmot_test.sh`:
+
+1. **RMOT base path** (Line 28):
+   ```bash
+   --rmot_path /home/seanachan/RMOT
+   ```
+   Update this to match your RMOT installation directory where the test data is located.
+
 ### Training
 You can download COCO pretrained weights from [Deformable DETR](https://github.com/fundamentalvision/Deformable-DETR) ''+ iterative bounding box refinement''.
 Then training TransRMOT on 8 GPUs as following:

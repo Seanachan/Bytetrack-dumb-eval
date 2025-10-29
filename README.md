@@ -117,6 +117,35 @@ To use custom test data, modify the following parameter in `configs/r50_rmot_tes
    ```
    Update this to match your RMOT installation directory where the test data is located.
 
+#### For Evaluation
+To evaluate tracking results, modify the following parameters in `TrackEval/scripts/evaluate_rmot.sh`:
+
+1. **Sequence map file** (Line 16):
+   ```bash
+   --SEQMAP_FILE /home/seanachan/RMOT/datasets/data_path/seqmap_existing.txt
+   ```
+   This file lists all sequences to evaluate (format: `video_id+expression_name` per line).
+
+2. **Ground truth folder** (Line 18):
+   ```bash
+   --GT_FOLDER /home/seanachan/RMOT/exps/default/results_epoch99
+   ```
+   Path to directory containing ground truth annotations.
+
+3. **Tracker results folder** (Line 19):
+   ```bash
+   --TRACKERS_FOLDER /home/seanachan/RMOT/exps/default/results_epoch99
+   ```
+   Path to directory containing tracking predictions.
+
+4. **Ground truth location format** (Line 20):
+   ```bash
+   --GT_LOC_FORMAT {gt_folder}/{video_id}/{expression_id}/gt.txt
+   ```
+   This defines the directory structure for ground truth files.
+
+**Note:** Ensure frame numbers in both `gt.txt` and `predict.txt` files are sequential (1 to N) and match the expected sequence length. Frame number mismatches will cause evaluation errors.
+
 ### Training
 You can download COCO pretrained weights from [Deformable DETR](https://github.com/fundamentalvision/Deformable-DETR) ''+ iterative bounding box refinement''.
 Then training TransRMOT on 8 GPUs as following:

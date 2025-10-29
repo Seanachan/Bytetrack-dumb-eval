@@ -6,3 +6,12 @@ motmetrics
 opencv-python
 seaborn
 lap
+
+# ByteTrack integration
+requests
+loguru
+
+# LLM integration
+pillow
+einops
+transformers==4.30.0

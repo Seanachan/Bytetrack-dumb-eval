@@ -131,7 +131,8 @@ if __name__ == '__main__':
     detr = detr.cuda()
 
     expressions_root = os.path.join(args.rmot_path, 'expression')
-    video_ids = ['0005', '0011', '0013']
+    #video_ids = ['0005', '0011', '0013']
+    video_ids = ['0013']
 
     seq_nums = []
     for video_id in video_ids:

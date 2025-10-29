@@ -205,3 +205,50 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# ========================================
+# RMOT-Specific Files
+# ========================================
+
+# Model checkpoints and experiments
+exps/
+*.pth
+*.ckpt
+*.weights
+
+# Dataset files
+KITTI/
+data/
+*.jpg
+*.jpeg
+*.png
+*.mp4
+*.avi
+
+# Build artifacts
+models/ops/build/
+*.o
+*.so
+*.a
+
+# Generated outputs
+output/
+results/
+crops/
+visualization/
+*.txt.bak
+
+# Tracking evaluation data
+TrackEval/data/trackers/
+TrackEval/data/gt/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp

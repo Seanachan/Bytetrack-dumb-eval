@@ -24,7 +24,53 @@ Existing referring understanding tasks tend to involve the detection of a single
 ## Getting started
 ### Installation
 
-The basic environment setup is on top of [MOTR](https://github.com/megvii-research/MOTR), including conda environment, pytorch version and other requirements. 
+The basic environment setup is on top of [MOTR](https://github.com/megvii-research/MOTR), including conda environment, pytorch version and other requirements.
+
+#### Requirements
+
+- **Python**: 3.8
+- **PyTorch**: 2.0.1 (with CUDA 11.8 support)
+- **torchvision**: 0.15.2+cu118
+- **CUDA Toolkit**: 11.3+
+- **NumPy**: 1.23.5
+- **Transformers**: 4.30.0 (for RoBERTa)
+
+#### Installation Steps
+
+1. Create a conda environment:
+   ```bash
+   conda create -n rmot python=3.8
+   conda activate rmot
+   ```
+
+2. Install PyTorch with CUDA support:
+   ```bash
+   pip install torch==2.0.1 torchvision==0.15.2 --index-url https://download.pytorch.org/whl/cu118
+   ```
+
+3. Install MultiScaleDeformableAttention:
+   ```bash
+   cd models/ops
+   python setup.py build install
+   cd ../..
+   ```
+
+4. Install other dependencies:
+   ```bash
+   pip install -r requirements.txt
+   pip install transformers==4.30.0
+   pip install einops pillow
+   ```
+
+The `requirements.txt` includes:
+- pycocotools
+- tqdm
+- cython
+- scipy
+- motmetrics
+- opencv-python
+- seaborn
+- lap
 
 ### Dataset
 You can download [our created expression](https://github.com/wudongming97/RMOT/releases/download/v1.0/expression.zip) and [labels_with_ids](https://github.com/wudongming97/RMOT/releases/download/v1.0/labels_with_ids.zip). 

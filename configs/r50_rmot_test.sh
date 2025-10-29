@@ -27,5 +27,4 @@ python3 inference.py \
 --extra_track_attn \
 --rmot_path /home/seanachan/RMOT \
 --resume exps/default/checkpoint0099.pth \
---output_dir exps/default \
---visualization
+--output_dir exps/default

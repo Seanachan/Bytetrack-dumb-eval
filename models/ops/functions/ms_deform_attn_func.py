@@ -18,7 +18,12 @@ import torch.nn.functional as F
 from torch.autograd import Function
 from torch.autograd.function import once_differentiable
 
-import MultiScaleDeformableAttention as MSDA
+try:
+    import MultiScaleDeformableAttention as MSDA
+    MSDA_AVAILABLE = True
+except ImportError:
+    MSDA_AVAILABLE = False
+    print("Warning: MultiScaleDeformableAttention CUDA extension not available. Using CPU fallback.")
 
 
 class MSDeformAttnFunction(Function):

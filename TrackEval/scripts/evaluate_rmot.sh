@@ -13,9 +13,9 @@
 
 python3 run_mot_challenge.py \
 --METRICS HOTA \
---SEQMAP_FILE /data/wudongming/TransRMOT/datasets/data_path/seqmap.txt \
+--SEQMAP_FILE /home/seanachan/RMOT/datasets/data_path/seqmap.txt \
 --SKIP_SPLIT_FOL True \
---GT_FOLDER /data/Dataset/refer-kitti/KITTI/training/image_02 \
+--GT_FOLDER /home/seanachan/data/Dataset/refer-kitti/KITTI/training/image_02 \
 --TRACKERS_FOLDER /data/wudongming/TransRMOT/exps/default/results_epoch99 \
 --GT_LOC_FORMAT {gt_folder}{video_id}/{expression_id}/gt.txt \
 --TRACKERS_TO_EVAL /data/wudongming/TransRMOT/exps/default/results_epoch99 \

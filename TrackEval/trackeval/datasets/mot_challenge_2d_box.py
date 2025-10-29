@@ -90,7 +90,7 @@ class MotChallenge2DBox(_BaseDataset):
             if not self.data_is_zipped:
                 # curr_file = self.config["GT_LOC_FORMAT"].format(gt_folder=self.gt_fol, seq=seq)
                 # gt has been saved into the same folder with prediction
-                curr_file = self.config["GT_LOC_FORMAT"].format(gt_folder=self.tracker_fol, video_id=seq.split('+')[0],
+                curr_file = self.config["GT_LOC_FORMAT"].format(gt_folder=self.gt_fol, video_id=seq.split('+')[0],
                                                                 expression_id=seq.split('+')[1])
                 if not os.path.isfile(curr_file):
                     print('GT file not found ' + curr_file)
@@ -183,7 +183,7 @@ class MotChallenge2DBox(_BaseDataset):
                         ini_data.read(ini_file)
                         seq_lengths[row[0]] = int(ini_data['Sequence']['seqLength'])
                     else:
-                        img_path = os.path.join('/data/Dataset/refer-kitti/KITTI/training/image_02', seq)
+                        img_path = os.path.join(self.gt_fol, seq)
                         img_list = os.listdir(img_path)
                         seq_lengths[row[0]] = int(len(img_list))
         return seq_list, seq_lengths
@@ -211,7 +211,7 @@ class MotChallenge2DBox(_BaseDataset):
             zip_file = None
             if is_gt:
                 # file = self.config["GT_LOC_FORMAT"].format(gt_folder=self.gt_fol, seq=seq)
-                file = self.config["GT_LOC_FORMAT"].format(gt_folder=self.tracker_fol, video_id=seq.split('+')[0],
+                file = self.config["GT_LOC_FORMAT"].format(gt_folder=self.gt_fol, video_id=seq.split('+')[0],
                                                            expression_id=seq.split('+')[1])
             else:
                 # file = os.path.join(self.tracker_fol, tracker, self.tracker_sub_fol, seq + '.txt')

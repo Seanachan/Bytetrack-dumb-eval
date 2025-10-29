@@ -92,6 +92,31 @@ cd TrackEval/script
 sh evaluate_rmot.sh
 ```
 
+### Additional Files (Not in Repository)
+
+Some large files are not tracked in this repository to keep it lightweight. These include:
+
+- **Pre-trained checkpoint**: `exps/default/checkpoint0099.pth` (968MB)
+- **Experiment results**: Files in `exps/default/results_epoch99/` and `exps/llm_filtered/`
+
+**Download and Setup:**
+
+1. Download `untracked_files.zip` from [Google Drive](INSERT_YOUR_GOOGLE_DRIVE_LINK_HERE)
+2. Extract the zip file:
+   ```bash
+   unzip untracked_files.zip
+   ```
+3. Copy only the `exps/` directory to your project root:
+   ```bash
+   cp -r RMOT_untracked_files/exps /path/to/your/RMOT/
+   ```
+   Or if you're already in the project directory:
+   ```bash
+   cp -r RMOT_untracked_files/exps .
+   ```
+
+This will restore the checkpoint file and experiment results without affecting other files in your repository.
+
 ## Results
 
 
